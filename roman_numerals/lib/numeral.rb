@@ -5,12 +5,7 @@ class Numeral
   end
 
   def convert_to_roman
-    [[1000, 'M'], [900, 'CM'],
-    [500, 'D'], [400, 'CD'],
-    [100, 'C'], [90, 'XC'],
-    [40, 'XL'], [10, 'X'],
-    [9, 'IX'], [5, 'V'],
-    [4, 'IV'], [1, 'I']].each do |num, roman|
+    conversion_chart.each do |num, roman|
       @remainder = convert_place_to_numeral(num, roman, @remainder)
     end
     @final
@@ -23,4 +18,12 @@ class Numeral
     return remainder
   end
 
+  def conversion_chart
+    [[1000, 'M'], [900, 'CM'],
+    [500, 'D'], [400, 'CD'],
+    [100, 'C'], [90, 'XC'],
+    [40, 'XL'], [10, 'X'],
+    [9, 'IX'], [5, 'V'],
+    [4, 'IV'], [1, 'I']]
+  end
 end
